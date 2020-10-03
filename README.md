@@ -53,7 +53,7 @@ setenforce [ Enforcing | Permissive | 1 | 0 ]   // 1 开启， 0 关闭
 
 永久关闭，需要设置文件/etc/sysconfig/selinux 并重启才能生效。
 
-## nginx 安装
+### nginx 安装
 1：下载安装包
 2：解压 tar -zxvf nginx-1.5.9.tar.gz 
 3. 安装依赖包
@@ -61,7 +61,7 @@ setenforce [ Enforcing | Permissive | 1 | 0 ]   // 1 开启， 0 关闭
       aptitude install libpcre3 libpcre3-dev libpcrecpp0 libssl-dev zlib1g-dev
 3：设置一下配置信息
 
-      ./configure \
+      sudo ./configure \
       --prefix=/usr/local/nginx \
       --pid-path=/var/run/nginx/nginx.pid \
       --lock-path=/var/lock/nginx.lock \
@@ -73,8 +73,12 @@ setenforce [ Enforcing | Permissive | 1 | 0 ]   // 1 开启， 0 关闭
       --http-fastcgi-temp-path=/var/temp/nginx/fastcgi \
       --http-uwsgi-temp-path=/var/temp/nginx/uwsgi \
       --http-scgi-temp-path=/var/temp/nginx/scgi
-4：make 编译      
-5：make install 安装     
+4：编译
+
+    sudo make       
+5：安装
+
+    sudo make install      
 
 > ubuntu 依赖库zlib，pcre，openssl安装方法
 
@@ -83,14 +87,12 @@ setenforce [ Enforcing | Permissive | 1 | 0 ]   // 1 开启， 0 关闭
       解决依赖包zlib安装，命令：sudo apt-get install zlib1g-dev
 
 
-## 配置服务
+### 配置服务
 创建脚本 
       
       vim /etc/init.d/nginx   
 
-[ubuntu](ubuntu_nginx)              
-
-[CentOS](centos_nginx)         
+[Ubuntu](ubuntu_nginx), [CentOS](centos_nginx)         
 
 
 添加脚本到系统默认运行级别
@@ -110,12 +112,12 @@ setenforce [ Enforcing | Permissive | 1 | 0 ]   // 1 开启， 0 关闭
       lynx http://localhost
 
 
-## nginx 命令
+### nginx 命令
 nginx 重加载
 
       sudo nginx -s reload
 
-## root 和 alias 区别
+### root 和 alias 区别
 nginx 指定文件路径有两种方式root和alias，指令的使用方法和作用域：     
 [root]
 
