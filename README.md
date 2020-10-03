@@ -7,8 +7,8 @@ Rambler.ru 站点开发的，第一个公开版本0.1.0发布于2004年10月4日
 
 尽管Node.JS的性能不错，但处理静态事务确实不是他的专长，如：gzip编码，静态文件，HTTP缓存，SSL处理，负载平衡和反向代理及多站点代理等，都可以通过nginx 来完成，从而减小node.js的负载，并通过nginx强大的缓存来节省您网站的流量从而提高网站的加载速度。
 
-### ginx 配置文件
-nginx 配置文件为[nginx.conf](nginx_default.conf)，完整例子看[这里](https://www.nginx.com/resources/wiki/start/topics/examples/full/)， 详细解释请看[这里(http://blog.argteam.com/coding/hardening-node-js-for-production-part-2-using-nginx-to-avoid-node-js-load/)。
+### nginx 配置文件
+nginx 配置文件为[nginx.conf](nginx_default.conf)，完整例子看[这里](https://www.nginx.com/resources/wiki/start/topics/examples/full/)， 详细解释请看[这里](http://blog.argteam.com/coding/hardening-node-js-for-production-part-2-using-nginx-to-avoid-node-js-load/)。
 
 其他配置看[这里](nginx_server)。
 
