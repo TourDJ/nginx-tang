@@ -1,3 +1,4 @@
+## Nginx
 
 ### Nginx 简介
 
@@ -6,18 +7,22 @@ Rambler.ru 站点开发的，第一个公开版本0.1.0发布于2004年10月4日
 
 尽管Node.JS的性能不错，但处理静态事务确实不是他的专长，如：gzip编码，静态文件，HTTP缓存，SSL处理，负载平衡和反向代理及多站点代理等，都可以通过nginx 来完成，从而减小node.js的负载，并通过nginx强大的缓存来节省您网站的流量从而提高网站的加载速度。
 
-nginx 配置文件[nginx.conf](nginx_default.conf), 完整例子看 [这里](https://www.nginx.com/resources/wiki/start/topics/examples/full/)， 详细解释请看[这里](http://blog.argteam.com/coding/hardening-node-js-for-production-part-2-using-nginx-to-avoid-node-js-load/),[其他配置](nginx_server)。
+### ginx 配置文件
+nginx 配置文件为[nginx.conf](nginx_default.conf)，完整例子看[这里](https://www.nginx.com/resources/wiki/start/topics/examples/full/)， 详细解释请看[这里(http://blog.argteam.com/coding/hardening-node-js-for-production-part-2-using-nginx-to-avoid-node-js-load/)。
+
+其他配置看[这里](nginx_server)。
 
 ### upstream
 The upstream directive specifies that these two instances work in tandem as an upstream server for nginx. The keepalive 64; directs nginx to keep a minimum of 64 HTTP/1.1 connections to the proxy server at any given time. This is a true minimum: if there is more traffic then nginx will open more connections to the proxy.
 
 
 ### 静态文件拦截器
-  location ~ ^/(images/|img/|javascript/|js/|css/|stylesheets/|flash/|media/|static/|robots.txt|humans.txt|favicon.ico) {
-    root /usr/local/silly_face_society/node/public;
-    access_log off;
-    expires max;
-  }
+
+    location ~ ^/(images/|img/|javascript/|js/|css/|stylesheets/|flash/|media/|static/|robots.txt|humans.txt|favicon.ico) {
+      root /usr/local/silly_face_society/node/public;
+      access_log off;
+      expires max;
+    }
 
 
 ## SELinux 对 nginx 影响
